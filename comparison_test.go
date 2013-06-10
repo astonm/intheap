@@ -43,7 +43,35 @@ func newGenericHeap() *GenericIntHeap {
 	return h
 }
 
-func BenchmarkHeap(b *testing.B) {
+func BenchmarkHeapInit(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		h := newHeap()
+		heap.Push(h, 0)
+	}
+}
+
+func BenchmarkGenericHeapInit(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		h := newGenericHeap()
+		h.Push(0)
+	}
+}
+
+func BenchmarkHeapPush(b *testing.B) {
+	h := newHeap()
+	for i := 0; i < b.N; i++ {
+		heap.Push(h, i)
+	}
+}
+
+func BenchmarkGenericHeapPush(b *testing.B) {
+	h := newGenericHeap()
+	for i := 0; i < b.N; i++ {
+		h.Push(i)
+	}
+}
+
+func BenchmarkHeapPushPop(b *testing.B) {
 	h := newHeap()
 	for i := 0; i < b.N; i++ {
 		heap.Push(h, i)
@@ -53,7 +81,7 @@ func BenchmarkHeap(b *testing.B) {
 	}
 }
 
-func BenchmarkGenericHeap(b *testing.B) {
+func BenchmarkGenericHeapPushPop(b *testing.B) {
 	h := newGenericHeap()
 	for i := 0; i < b.N; i++ {
 		h.Push(i)
