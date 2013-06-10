@@ -7,11 +7,12 @@ import "fmt"
 type IntHeap struct {
 	heap.GenericHeap
 
-	Push func(int)
-	Pop  func() int
+	Push   func(int)
+	Pop    func() int
 	Remove func(int) int
 }
-func (*IntHeap) Less(a, b int) bool { return a < b}
+
+func (*IntHeap) Less(a, b int) bool { return a < b }
 
 func main() {
 	h := &IntHeap{}

@@ -19,17 +19,18 @@ func (h *IntHeap) Pop() interface{} {
 	n := len(old)
 	x := old[n-1]
 	*h = old[0 : n-1]
-        return x
+	return x
 }
 
 type GenericIntHeap struct {
 	generic_heap.GenericHeap
 
-	Push func(int)
-	Pop  func() int
+	Push   func(int)
+	Pop    func() int
 	Remove func(int) int
 }
-func (*GenericIntHeap) Less(a, b int) bool { return a < b}
+
+func (*GenericIntHeap) Less(a, b int) bool { return a < b }
 
 func newHeap() *IntHeap {
 	h := &IntHeap{}
