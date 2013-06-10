@@ -8,5 +8,5 @@ Advantages of generic/heap:
  - Operations are attached to the heap, not calls with the heap as the first parameter.
  - Inputs and outputs of operations are statically type-checked.
  
- Disadvantages of generic/heap:
+Disadvantages of generic/heap:
  - Somewhere between a 5x and 50x slowdown relative to the interface{}-based implementation. (benchmark comparison_test.go for details)
